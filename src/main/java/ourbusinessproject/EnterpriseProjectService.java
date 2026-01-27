@@ -30,10 +30,11 @@ public class EnterpriseProjectService {
      * @param description the description
      * @return the new Project
      */
-    public Project newProject(String title, String description) {
+    public Project newProject(String title, String description, Enterprise enterprise) {
         Project project  = new Project();
         project.setTitle(title);
         project.setDescription(description);
+        project.setEnterprise(enterprise);
         entityManager.persist(project);
         entityManager.flush();
         return project;
