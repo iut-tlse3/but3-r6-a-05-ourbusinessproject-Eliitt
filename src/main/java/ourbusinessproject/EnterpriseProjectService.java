@@ -28,6 +28,7 @@ public class EnterpriseProjectService {
      * add to entityManager and return a new Project
      * @param title the title
      * @param description the description
+     * @param enterprise the enterprise the project is part of
      * @return the new Project
      */
     public Project newProject(String title, String description, Enterprise enterprise) {
@@ -37,6 +38,7 @@ public class EnterpriseProjectService {
         project.setEnterprise(enterprise);
         entityManager.persist(project);
         entityManager.flush();
+        project.getEnterprise().addProjects(project);
         return project;
     }
 
