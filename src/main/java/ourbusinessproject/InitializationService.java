@@ -18,6 +18,8 @@ public class InitializationService {
 
     @Transactional
     public void initProjects() {
+        // Comme la méthode est Transactional, si il y a un problème à une étape tout le contenu de la fonction est
+        // rollback et donc aucun des trois projet n'est créé.
         e1 = eps.newEnterprise("E1","description entreprise1","agh","fa@gmail.com");
         e2 = eps.newEnterprise("E2","description entreprise2","gag","goah@gmail.com");
         p1 = eps.newProject("proj1","desc",e1);
